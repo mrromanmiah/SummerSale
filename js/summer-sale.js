@@ -2,7 +2,7 @@ const inputCoupon = document.getElementById('inputCoupon');
 const buttonCoupon = document.getElementById('buttonCoupon');
 inputCoupon.addEventListener('input', function () {
     const couponCode = inputCoupon.value;
-    if (couponCode === 'SELL200' && parseFloat(totalPrice) > 200) {
+    if (couponCode === 'SELL200' && parseFloat(totalPrice) >= 200) {
         buttonCoupon.removeAttribute('disabled');
     } else {
         buttonCoupon.setAttribute('disabled', 'disabled');
@@ -46,7 +46,7 @@ function itemClick(target) {
     showDiscount.innerText = discountedAmount;
     grandTotal = (totalPrice - discountedAmount).toFixed(2);
     document.getElementById('grandTotal').innerText = totalPrice;
-    if (parseFloat(totalPrice) > 200) {
+    if (parseFloat(totalPrice) >= 200) {
         buttonCoupon.removeAttribute('disabled');
     }
     enablePurchaseButton();
